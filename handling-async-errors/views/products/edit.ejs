@@ -1,0 +1,32 @@
+<%- include('partials/head')%>
+    <%- include('partials/header')%>
+
+
+        <div class="container">
+            <h1> Edit Product</h1>
+            <form action="/products/<%=product.id%>?_method=PUT" method="POST">
+                <label for="name">Product Name</label>
+                <input type="text" name="name" id="name" placeholder="product name" value="<%= product.name%>">
+                <label for="price"> Price (unit)</label>
+                <input type="number" name="price" id="price" placeholder="price" value="<%= product.price%>">
+                <select name="category" id="category">
+                    <% for(let category of categories) { %>
+                        <option value="<%=category%>" <%= product.category === category ? 'selected' : ' '  %>>  <%=category%> </option>
+                    <%}%> 
+                </select>
+                <button>Submit</button>
+
+                
+            </form>
+
+            <a href="/products">Go to All Products</a>
+            <a href="/products/<%=product._id%> ">Cancel</a>
+
+        </div>
+
+        
+
+        <%- include('partials/footer') %>
+
+
+        <!-- remember: add a query string setting (?_method=PUT) for this example-->

@@ -1,0 +1,23 @@
+<%- include('partials/head')%>
+    <%- include('partials/header')%>
+
+        <div class="container">
+            <h1><%= category%>  Products</h1>
+            <ul>
+                <% for(let product of products) { %>
+                    <li> <a href="/products/<%= product._id%>">
+                            <%= product.name %>
+                        </a>
+                    </li>
+                    <%} %>
+            </ul>
+            
+<% if(category !== 'All') { %>
+    <a href="/products"> All products</a>
+<%} %> 
+    <a href="/products/new"> New Product</a>
+        </div>
+
+
+
+        <%- include('partials/footer') %>
